@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Shri Plumbing Solutions | Bhosari, Pune</title>
+    <meta name="description" content="Learn about Shri Plumbing Solutions. With 15+ years of experience, we are Bhosari and PCMC's most trusted plumbing experts. Licensed, insured, and available 24/7.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           CSS VARIABLES & DESIGN SYSTEM
+           ========================================= */
+        :root {
+            --primary: #06b6d4;
+            --primary-dark: #0891b2;
+            --primary-light: #cffafe;
+            --primary-glow: rgba(6, 182, 212, 0.4);
+            --accent: #f97316;
+            --accent-hover: #ea580c;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --dark-card: #1e293b;
+            --gray-light: #f8fafc;
+            --gray-bg: #f0f9ff;
+            --gray-border: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #6366f1 100%);
+            --gradient-2: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.3);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; letter-spacing: -0.03em; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; z-index: 0; pointer-events: none; }
+        .blob-1 { width: 400px; height: 400px; background: var(--primary-glow); top: -100px; right: -100px; animation: float 8s ease-in-out infinite; }
+        .blob-2 { width: 300px; height: 300px; background: rgba(249, 115, 22, 0.2); bottom: 100px; left: -80px; animation: float 10s ease-in-out infinite reverse; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* =========================================
+           HEADER & NAVIGATION
+           ========================================= */
+        .header {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05); border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            transition: var(--transition);
+        }
+        .nav-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 800; color: var(--dark); }
+        .logo-icon {
+            width: 44px; height: 44px; background: var(--gradient-1); color: var(--white); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 20px;
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3); transition: var(--transition);
+        }
+        .logo:hover .logo-icon { transform: rotate(-10deg) scale(1.05); }
+
+        .nav-links { display: flex; gap: 36px; align-items: center; }
+        .nav-links a { font-weight: 600; font-size: 15px; color: var(--text-muted); transition: var(--transition); position: relative; padding: 4px 0; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--gradient-1); transition: width 0.3s ease; border-radius: 2px; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--dark); }
+        .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+        .btn {
+            padding: 13px 26px; border-radius: 12px; font-weight: 700; font-size: 15px;
+            cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+            gap: 8px; border: none; transition: var(--transition); position: relative; overflow: hidden;
+        }
+        .btn-primary { background: var(--gradient-1); color: var(--white); box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3); }
+        .btn-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.6s ease; }
+        .btn-primary:hover::before { left: 100%; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(6, 182, 212, 0.4); }
+
+        .menu-btn { display: none; font-size: 24px; color: var(--dark); cursor: pointer; }
+        .mobile-only-actions { display: none; }
+
+        /* =========================================
+           PAGE HERO (About Us)
+           ========================================= */
+        .page-hero {
+            padding: 100px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+        .page-hero .badge-live {
+            display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark);
+            border-radius: 30px; font-weight: 700; font-size: 13px; margin-bottom: 24px; border: 1px solid rgba(6, 182, 212, 0.2); backdrop-filter: blur(10px);
+        }
+        .page-hero h1 { font-size: 4rem; line-height: 1.1; font-weight: 900; color: var(--dark); margin-bottom: 20px; }
+        .page-hero h1 span { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        /* =========================================
+           COMPANY STORY SECTION
+           ========================================= */
+        .story-section { padding: 60px 24px 100px; max-width: 1280px; margin: 0 auto; }
+        .story-container { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+        
+        .story-image-wrapper { position: relative; }
+        .story-img-card { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover; position: relative; z-index: 2; }
+        .story-image-wrapper::before { content: ''; position: absolute; top: -20px; left: -20px; width: 200px; height: 200px; background: var(--gradient-1); border-radius: var(--radius-lg); z-index: 1; opacity: 0.15; }
+        .story-image-wrapper::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 150px; height: 150px; background: var(--gradient-2); border-radius: var(--radius-lg); z-index: 1; opacity: 0.2; }
+
+        .story-content .section-tag { display: inline-block; color: var(--primary-dark); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 20px; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border-radius: 30px; border: 1px solid rgba(6, 182, 212, 0.2); }
+        .story-content h2 { font-size: 2.8rem; color: var(--dark); font-weight: 800; margin-bottom: 22px; line-height: 1.15; }
+        .story-content p { color: var(--text-muted); font-size: 16px; margin-bottom: 20px; line-height: 1.8; }
+
+        /* =========================================
+           STATS SECTION
+           ========================================= */
+        .stats-section { background: var(--gray-light); padding: 80px 24px; position: relative; overflow: hidden; }
+        .stats-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; position: relative; z-index: 2; }
+        .stat-box { background: var(--white); padding: 40px 24px; border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-border); transition: var(--transition); position: relative; overflow: hidden; }
+        .stat-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gradient-1); transform: scaleX(0); transition: transform 0.4s ease; }
+        .stat-box:hover::before { transform: scaleX(1); }
+        .stat-box:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .stat-box h3 { font-size: 3rem; font-weight: 900; margin-bottom: 8px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-box p { color: var(--text-muted); font-size: 15px; font-weight: 600; }
+
+        /* =========================================
+           WHY CHOOSE US SECTION
+           ========================================= */
+        .why-section { padding: 100px 24px; max-width: 1280px; margin: 0 auto; }
+        .section-header { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+        .section-tag { display: inline-block; color: var(--primary-dark); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 16px; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border-radius: 30px; border: 1px solid rgba(6, 182, 212, 0.2); }
+        .section-title { font-size: 3rem; color: var(--dark); font-weight: 800; margin-bottom: 18px; line-height: 1.15; }
+        .section-subtitle { font-size: 17px; color: var(--text-muted); }
+
+        .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .why-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--gray-border); padding: 40px 32px; transition: var(--transition); position: relative; overflow: hidden; }
+        .why-card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08), transparent 60%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+        .why-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(6, 182, 212, 0.3); }
+        .why-card:hover::after { opacity: 1; }
+        
+        .why-icon { width: 60px; height: 60px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 24px; transition: var(--transition); }
+        .why-card:hover .why-icon { background: var(--gradient-1); color: var(--white); transform: scale(1.1) rotate(-5deg); box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3); }
+        
+        .why-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 12px; color: var(--dark); }
+        .why-card p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+
+        /* =========================================
+           TEAM / COMMITMENT SECTION
+           ========================================= */
+        .commitment-section { background: var(--dark); padding: 100px 24px; position: relative; overflow: hidden; color: var(--white); }
+        .commitment-section::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(6, 182, 212, 0.15), transparent 70%); pointer-events: none; }
+        .commitment-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+        
+        .commitment-content h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; line-height: 1.15; }
+        .commitment-content p { color: #94a3b8; font-size: 16px; margin-bottom: 30px; }
+        
+        .commitment-list li { display: flex; align-items: center; gap: 14px; font-weight: 500; color: var(--white); margin-bottom: 16px; padding: 14px 20px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); transition: var(--transition); }
+        .commitment-list li:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--primary); transform: translateX(5px); }
+        .commitment-list li i { color: var(--primary); font-size: 18px; }
+
+        .commitment-image { position: relative; }
+        .commitment-image img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.1); }
+
+        /* =========================================
+           CTA BANNER
+           ========================================= */
+        .cta-section { padding: 100px 24px; max-width: 1280px; margin: 0 auto; }
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+            border: 1px solid var(--primary-glow);
+            border-radius: var(--radius-lg);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner h2 { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; position: relative; z-index: 2; }
+        .cta-banner p { font-size: 17px; color: var(--text-muted); margin-bottom: 32px; position: relative; z-index: 2; }
+        .cta-banner .btn { padding: 16px 36px; font-size: 16px; position: relative; z-index: 2; }
+
+        /* =========================================
+           FOOTER & MAP
+           ========================================= */
+        .map-container { width: 100%; height: 400px; background: var(--gray-border); position: relative; }
+        .map-container iframe { width: 100%; height: 100%; border: none; filter: grayscale(20%); }
+        
+        footer { background: var(--dark); color: #94a3b8; padding: 90px 24px 30px; position: relative; overflow: hidden; }
+        footer::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(6, 182, 212, 0.15), transparent 70%); pointer-events: none; }
+        .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 48px; padding-bottom: 60px; border-bottom: 1px solid rgba(148, 163, 184, 0.2); position: relative; z-index: 2; }
+        .footer-brand .logo { color: var(--white); margin-bottom: 22px; }
+        .footer-brand .logo-icon { background: var(--gradient-1); }
+        .footer-brand p { font-size: 14px; line-height: 1.8; max-width: 320px; }
+        .footer-col h4 { color: var(--white); margin-bottom: 24px; font-size: 16px; font-weight: 800; position: relative; padding-bottom: 12px; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--gradient-1); border-radius: 2px; }
+        .footer-col ul li { margin-bottom: 14px; font-size: 14px; transition: var(--transition); }
+        .footer-col ul li a:hover { color: var(--primary); padding-left: 4px; }
+        .contact-list li { display: flex; gap: 12px; align-items: flex-start; }
+        .contact-list i { color: var(--primary); font-size: 16px; margin-top: 4px; width: 32px; height: 32px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .footer-bottom { max-width: 1280px; margin: 30px auto 0; text-align: center; font-size: 14px; position: relative; z-index: 2; }
+
+        /* =========================================
+           MOBILE STICKY BAR
+           ========================================= */
+        .mobile-sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 4000; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
+        .mobile-sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 0; font-size: 16px; font-weight: 700; color: #ffffff; text-decoration: none; transition: var(--transition); }
+        .sticky-wa { background: linear-gradient(135deg, #25D366, #128C7E); }
+        .sticky-call { background: var(--gradient-1); }
+        @media (min-width: 769px) { .mobile-sticky-bar { display: none; } }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 992px) {
+            .page-hero h1 { font-size: 3rem; }
+            .story-container { grid-template-columns: 1fr; gap: 40px; }
+            .story-image-wrapper { max-width: 500px; margin: 0 auto; order: -1; }
+            .commitment-container { grid-template-columns: 1fr; gap: 40px; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            body { padding-bottom: 64px; }
+            .menu-btn { display: block; }
+            .nav-actions { display: none; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); flex-direction: column; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: clip-path 0.4s ease-in-out; gap: 18px; align-items: flex-start; }
+            .nav-links.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+            .mobile-only-actions { display: flex; flex-direction: column; width: 100%; padding-top: 18px; border-top: 1px solid var(--gray-border); }
+
+            .page-hero { padding: 60px 20px 40px; }
+            .page-hero h1 { font-size: 2.4rem; }
+            .section-title { font-size: 2rem; }
+            
+            .why-section, .commitment-section, .cta-section { padding: 70px 20px; }
+            .footer-container { grid-template-columns: 1fr; gap: 32px; }
+            .cta-banner { padding: 40px 20px; }
+            .cta-banner h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="nav-container">
+            <!-- Logo links to Home -->
+            <a href="https://shriplumbingsolutions.in/" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-wrench"></i></div>
+                Shri Plumbing
+            </a>
+
+            <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+
+            <!-- Navigation Links with Full URLs -->
+            <ul class="nav-links">
+                <li><a href="https://shriplumbingsolutions.in/">Home</a></li>
+                <li><a href="https://shriplumbingsolutions.in/service/">Services</a></li>
+                <li><a href="https://shriplumbingsolutions.in/about-us/" class="active">About Us</a></li>
+                <li><a href="https://shriplumbingsolutions.in/contact/">Contact</a></li>
+                
+                <!-- Mobile Only Button -->
+                <li class="mobile-only-actions">
+                    <a href="tel:+918421554079" class="btn btn-primary" style="width: 100%;">Call Now</a>
+                </li>
+            </ul>
+
+            <!-- Desktop Actions -->
+            <div class="nav-actions">
+                <a href="tel:+918421554079" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="reveal">
+            <div class="badge-live">About Us</div>
+            <h1>Bhosari's Most <span>Trusted Plumbers</span></h1>
+            <p>With over 15 years of experience, we've built a reputation for honest pricing, rapid response, and exceptional workmanship.</p>
+        </div>
+    </section>
+
+    <!-- COMPANY STORY -->
+    <section class="story-section">
+        <div class="story-container">
+            <div class="story-content reveal">
+                <div class="section-tag">Our Story</div>
+                <h2>Dedicated to Solving Your Plumbing Nightmares</h2>
+                <p>Shri Plumbing Solutions was founded with a simple mission: to deliver honest, reliable, and high-quality plumbing services to the residents and businesses of Bhosari, PCMC, and Pune.</p>
+                <p>What started as a small local operation has now grown into one of the most trusted names in the region. We realized early on that plumbing isn't just about fixing pipes—it's about restoring peace of mind. Whether it's a midnight emergency or a planned luxury bathroom installation, we treat every job with the same level of professionalism and urgency.</p>
+                <p>Today, backed by a team of licensed, insured, and background-checked technicians, we continue to raise the bar for what you should expect from a plumbing company.</p>
+            </div>
+            <div class="story-image-wrapper reveal">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1000" alt="Shri Plumbing Team" class="story-img-card">
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+        <div class="stats-grid reveal">
+            <div class="stat-box">
+                <h3>15+</h3>
+                <p>Years of Experience</p>
+            </div>
+            <div class="stat-box">
+                <h3>2500+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat-box">
+                <h3>24/7</h3>
+                <p>Emergency Service</p>
+            </div>
+            <div class="stat-box">
+                <h3>100%</h3>
+                <p>Satisfaction Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-section">
+        <div class="section-header reveal">
+            <span class="section-tag">Why Choose Us</span>
+            <h2 class="section-title">What Sets Us Apart</h2>
+            <p class="section-subtitle">We don't just fix problems; we build long-term trust with every client.</p>
+        </div>
+        
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Rapid 30-Min Response</h3>
+                <p>Plumbing emergencies can't wait. Our strategically located teams ensure we reach your doorstep faster than anyone else in Bhosari.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                <h3>Transparent Pricing</h3>
+                <p>No hidden charges, no surprise bills. We inspect the issue and provide a clear, upfront quote before starting any work.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fa-solid fa-user-shield"></i></div>
+                <h3>Licensed & Background-Checked</h3>
+                <p>Your safety is our priority. Every technician is licensed, insured, and thoroughly background-checked before joining our team.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fa-solid fa-temperature-low"></i></div>
+                <h3>Advanced Thermal Scanning</h3>
+                <p>We use German infrared technology to detect hidden leaks without breaking your expensive tiles or destroying walls.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fa-solid fa-thumbs-up"></i></div>
+                <h3>100% Satisfaction Guarantee</h3>
+                <p>We stand by our work. If something isn't right, we'll come back and fix it. That's our promise to you.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
+                <h3>Available 24/7/365</h3>
+                <p>Day or night, weekends, or festivals—our emergency helpline is always active. Help is just one call away.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR COMMITMENT -->
+    <section class="commitment-section">
+        <div class="commitment-container">
+            <div class="commitment-image reveal">
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1000" alt="Plumbing Tools">
+            </div>
+            <div class="commitment-content reveal">
+                <h2>Our Commitment to Every Home & Business</h2>
+                <p>When you invite us into your home, we treat it with the respect it deserves. We follow strict protocols to ensure a clean, safe, and stress-free experience.</p>
+                <ul class="commitment-list">
+                    <li><i class="fa-solid fa-check-circle"></i> We arrive on time, in uniform, and with the right tools.</li>
+                    <li><i class="fa-solid fa-check-circle"></i> We use shoe covers and lay down drop cloths to protect your floors.</li>
+                    <li><i class="fa-solid fa-check-circle"></i> We clean up thoroughly before we leave—every single time.</li>
+                    <li><i class="fa-solid fa-check-circle"></i> We use only genuine, high-grade spare parts and materials.</li>
+                    <li><i class="fa-solid fa-check-circle"></i> We explain the issue clearly and offer honest recommendations.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-banner reveal">
+            <h2>Experience the Shri Plumbing Difference</h2>
+            <p>Don't leave your plumbing to chance. Contact Bhosari's most trusted experts today.</p>
+            <a href="https://shriplumbingsolutions.in/contact/" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Contact Us Now</a>
+        </div>
+    </section>
+
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15121.206584284898!2d73.8415712128766!3d18.627764952044813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c87b925b0cb5%3A0xe5108b3ba9452293!2sBhosari%2C%20Pimpri-Chinchwad%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-wrench"></i></div>
+                    Shri Plumbing
+                </div>
+                <p>Bhosari & PCMC's trusted plumbing experts. Fast, reliable, and affordable services for homes and businesses.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://shriplumbingsolutions.in/">Home</a></li>
+                    <li><a href="https://shriplumbingsolutions.in/service/">Services</a></li>
+                    <li><a href="https://shriplumbingsolutions.in/about-us/">About Us</a></li>
+                    <li><a href="https://shriplumbingsolutions.in/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="https://shriplumbingsolutions.in/service/">Emergency Plumbing</a></li>
+                    <li><a href="https://shriplumbingsolutions.in/service/">Drain Unclogging</a></li>
+                    <li><a href="https://shriplumbingsolutions.in/service/">Leak Detection</a></li>
+                    <li><a href="https://shriplumbingsolutions.in/service/">Bathroom Fittings</a></li>
+                    <li><a href="https://shriplumbingsolutions.in/service/">Water Tank Cleaning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-phone"></i> <span>+91 84215 54079</span></li>
+                    <li><i class="fa-solid fa-location-dot"></i> <span>Pandav Nagar No.1, Chakrapani Road, Bhosari, Pune - 411039</span></li>
+                    <li><i class="fa-regular fa-envelope"></i> <span>contact@shriplumbingsolutions.in</span></li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 14px;">Mon–Sun: 24/7 Available<br>Emergency Calls Accepted</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Shri Plumbing Solutions. All rights reserved. | Best Plumber in Bhosari, PCMC</p>
+        </div>
+    </footer>
+
+    <div class="mobile-sticky-bar">
+        <a href="https://wa.me/918421554079" target="_blank" class="sticky-wa">
+            <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> WhatsApp
+        </a>
+        <a href="tel:+918421554079" class="sticky-call">
+            <i class="fa-solid fa-phone" style="font-size: 18px;"></i> Call Now
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const menuIcon = menuBtn.querySelector('i');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if(navLinks.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
+            } else {
+                header.style.boxShadow = '0 1px 0 rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
