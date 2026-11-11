@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon updated with your logo -->
+    <link rel="icon" type="image/png" href="https://github.com/Growftofficial/shriplumbingsolutionwebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true">
 
     <script type="application/ld+json">
     {
@@ -100,13 +103,11 @@
             transition: var(--transition);
         }
         .nav-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 800; color: var(--dark); }
-        .logo-icon {
-            width: 44px; height: 44px; background: var(--gradient-1); color: var(--white); border-radius: 12px;
-            display: flex; align-items: center; justify-content: center; font-size: 20px;
-            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3); transition: var(--transition);
-        }
-        .logo:hover .logo-icon { transform: rotate(-10deg) scale(1.05); }
+        
+        /* UPDATED LOGO WITH IMAGE */
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 800; color: var(--dark); }
+        .logo img { width: 50px; height: 50px; object-fit: contain; transition: var(--transition); }
+        .logo:hover img { transform: scale(1.05); }
 
         .nav-links { display: flex; gap: 36px; align-items: center; }
         .nav-links a { font-weight: 600; font-size: 15px; color: var(--text-muted); transition: var(--transition); position: relative; padding: 4px 0; }
@@ -129,7 +130,7 @@
         .mobile-only-actions { display: none; }
 
         /* =========================================
-           POPUP MODAL
+           POPUP MODAL (FORMSPREE)
            ========================================= */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(8px);
@@ -146,7 +147,7 @@
             display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: var(--transition);
         }
         .close-modal:hover { background: var(--danger); color: var(--white); transform: rotate(90deg); }
-        .form-control { width: 100%; padding: 15px 18px; border-radius: 12px; border: 2px solid var(--gray-border); outline: none; margin-bottom: 16px; font-size: 15px; transition: var(--transition); background: var(--gray-light); }
+        .form-control { width: 100%; padding: 15px 18px; border-radius: 12px; border: 2px solid var(--gray-border); outline: none; margin-bottom: 16px; font-size: 15px; transition: var(--transition); background: var(--gray-light); font-family: inherit; }
         .form-control:focus { border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 4px var(--primary-glow); }
         .modal-content h3 { font-size: 28px; margin-bottom: 8px; color: var(--dark); font-weight: 800; }
         .modal-content p { color: var(--text-muted); margin-bottom: 24px; font-size: 14px; }
@@ -324,7 +325,7 @@
         footer::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(6, 182, 212, 0.15), transparent 70%); pointer-events: none; }
         .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 48px; padding-bottom: 60px; border-bottom: 1px solid rgba(148, 163, 184, 0.2); position: relative; z-index: 2; }
         .footer-brand .logo { color: var(--white); margin-bottom: 22px; }
-        .footer-brand .logo-icon { background: var(--gradient-1); }
+        .footer-brand .logo img { width: 60px; height: auto; background: #fff; border-radius: 8px; padding: 4px; }
         .footer-brand p { font-size: 14px; line-height: 1.8; max-width: 320px; }
         .footer-col h4 { color: var(--white); margin-bottom: 24px; font-size: 16px; font-weight: 800; position: relative; padding-bottom: 12px; }
         .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--gradient-1); border-radius: 2px; }
@@ -382,28 +383,25 @@
 
     <header class="header">
         <div class="nav-container">
-            <!-- Logo links to Home -->
+            <!-- UPDATED LOGO -->
             <a href="https://shriplumbingsolutions.in/" class="logo">
-                <div class="logo-icon"><i class="fa-solid fa-wrench"></i></div>
+                <img src="https://github.com/Growftofficial/shriplumbingsolutionswebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true" alt="Shri Plumbing Logo">
                 Shri Plumbing
             </a>
 
             <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
 
-            <!-- Navigation Links with Full URLs -->
             <ul class="nav-links">
-                <li><a href="https://shriplumbingsolutions.in/">Home</a></li>
+                <li><a href="https://shriplumbingsolutions.in/" class="active">Home</a></li>
                 <li><a href="https://shriplumbingsolutions.in/service/">Services</a></li>
                 <li><a href="https://shriplumbingsolutions.in/about-us/">About Us</a></li>
                 <li><a href="https://shriplumbingsolutions.in/contact/">Contact</a></li>
                 
-                <!-- Mobile Only Button -->
                 <li class="mobile-only-actions">
                     <button class="btn btn-primary" onclick="openModal()" style="width: 100%;">Book a Service</button>
                 </li>
             </ul>
 
-            <!-- Desktop Actions -->
             <div class="nav-actions">
                 <button class="btn btn-primary" onclick="openModal()"><i class="fa-solid fa-calendar-check"></i> Book a Service</button>
             </div>
@@ -432,7 +430,7 @@
         </div>
     </section>
 
-    <!-- HIGH-CONVERSION SERVICES -->
+    <!-- SERVICES -->
     <section class="services-section-basic" id="services">
         <div class="section-header reveal">
             <span class="section-tag">WHAT WE DO</span>
@@ -462,7 +460,8 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Other services can remain same, replacing the form at the bottom -->
+            <!-- For brevity, assuming services 2-6 are same as previous code -->
             <!-- Service 2 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
@@ -484,7 +483,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Service 3 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
@@ -506,7 +504,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Service 4 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
@@ -528,7 +525,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Service 5 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
@@ -550,7 +546,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Service 6 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
@@ -575,7 +570,7 @@
         </div>
     </section>
 
-    <!-- THERMAL SERVICES SECTION -->
+    <!-- THERMAL SERVICES -->
     <section class="services-section">
         <div class="section-header reveal">
             <span class="section-tag" style="color: #dc2626; background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2);">COMPREHENSIVE NON-DESTRUCTIVE DIAGNOSTICS</span>
@@ -604,7 +599,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Card 2 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
@@ -625,7 +619,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Card 3 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
@@ -646,7 +639,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Card 4 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
@@ -667,7 +659,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Card 5 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
@@ -688,7 +679,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Card 6 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
@@ -712,6 +702,7 @@
         </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section class="about-section" id="about">
         <div class="about-container">
             <div class="about-content reveal">
@@ -749,6 +740,7 @@
         </div>
     </section>
 
+    <!-- TESTIMONIALS -->
     <section class="testimonials-section" id="testimonials">
         <div class="section-header reveal">
             <span class="section-tag">TESTIMONIALS</span>
@@ -783,6 +775,7 @@
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq-section" id="faq">
         <div class="section-header reveal">
             <span class="section-tag">FAQ</span>
@@ -821,7 +814,7 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="logo">
-                    <div class="logo-icon"><i class="fa-solid fa-wrench"></i></div>
+                    <img src="https://github.com/Growftofficial/shriplumbingsolutionswebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true" alt="Shri Plumbing Logo">
                     Shri Plumbing
                 </div>
                 <p>Bhosari & PCMC's trusted plumbing experts. Fast, reliable, and affordable services for homes and businesses.</p>
@@ -850,8 +843,8 @@
                 <h4>Contact Info</h4>
                 <ul class="contact-list">
                     <li><i class="fa-solid fa-phone"></i> <span>+91 84215 54079</span></li>
+                    <li><i class="fa-solid fa-envelope"></i> <span>rajeshdhande1989@gmail.com</span></li>
                     <li><i class="fa-solid fa-location-dot"></i> <span>Pandav Nagar No.1, Chakrapani Road, Bhosari, Pune - 411039</span></li>
-                    <li><i class="fa-regular fa-envelope"></i> <span>contact@shriplumbingsolutions.in</span></li>
                 </ul>
                 <p style="margin-top: 20px; font-size: 14px;">Mon–Sun: 24/7 Available<br>Emergency Calls Accepted</p>
             </div>
@@ -861,6 +854,7 @@
         </div>
     </footer>
 
+    <!-- BOOKING MODAL (FORMSPREE INTEGRATION) -->
     <div class="modal-overlay" id="bookingModal">
         <div class="modal-content">
             <div class="close-modal" onclick="closeModal()">
@@ -869,10 +863,11 @@
             <h3>Book a Service</h3>
             <p>Fill out the form and our expert will contact you within 15 mins.</p>
 
-            <form onsubmit="event.preventDefault(); alert('Request Sent Successfully! We will call you back.'); closeModal();">
-                <input type="text" class="form-control" placeholder="Your Name" required>
-                <input type="tel" class="form-control" placeholder="Phone Number" required>
-                <input type="text" class="form-control" placeholder="Service Needed (e.g., Leak Repair)">
+            <!-- Formspree Action -->
+            <form action="https://formspree.io/f/xbgorajz" method="POST">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+                <input type="text" name="service" class="form-control" placeholder="Service Needed (e.g., Leak Repair)">
                 <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 15px;">Confirm Booking</button>
             </form>
         </div>
@@ -948,7 +943,6 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Header scroll effect
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
