@@ -10,73 +10,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://github.com/Growftofficial/shriplumbingsolutionswebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true">
 
     <style>
-        /* =========================================
-           CSS VARIABLES & DESIGN SYSTEM
-           ========================================= */
         :root {
-            --primary: #06b6d4;
-            --primary-dark: #0891b2;
-            --primary-light: #cffafe;
-            --primary-glow: rgba(6, 182, 212, 0.4);
-            --accent: #f97316;
-            --accent-hover: #ea580c;
-            --danger: #ef4444;
-            --dark: #0f172a;
-            --dark-card: #1e293b;
-            --gray-light: #f8fafc;
-            --gray-bg: #f0f9ff;
-            --gray-border: #e2e8f0;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --white: #ffffff;
-            --gradient-1: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #6366f1 100%);
-            --gradient-2: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
-            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.3);
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #06b6d4; --primary-dark: #0891b2; --primary-light: #cffafe; --primary-glow: rgba(6, 182, 212, 0.4);
+            --accent: #f97316; --accent-hover: #ea580c; --danger: #ef4444; --dark: #0f172a; --dark-card: #1e293b;
+            --gray-light: #f8fafc; --gray-bg: #f0f9ff; --gray-border: #e2e8f0; --text-dark: #1e293b; --text-muted: #64748b;
+            --white: #ffffff; --gradient-1: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #6366f1 100%);
+            --gradient-2: linear-gradient(135deg, #f97316 0%, #ef4444 100%); --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08); --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.3); --radius-md: 16px; --radius-lg: 24px; --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
         h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; letter-spacing: -0.03em; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
-
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
-
         .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; z-index: 0; pointer-events: none; }
         .blob-1 { width: 400px; height: 400px; background: var(--primary-glow); top: -100px; right: -100px; animation: float 8s ease-in-out infinite; }
         .blob-2 { width: 300px; height: 300px; background: rgba(249, 115, 22, 0.2); bottom: 100px; left: -80px; animation: float 10s ease-in-out infinite reverse; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(30px, -30px) scale(1.1); } }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.1); }
-        }
-
-        /* =========================================
-           HEADER & NAVIGATION
-           ========================================= */
-        .header {
-            position: sticky; top: 0; z-index: 1000;
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
-            box-shadow: 0 1px 0 rgba(0,0,0,0.05); border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-            transition: var(--transition);
-        }
+        /* HEADER & NAV */
+        .header { position: sticky; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(0,0,0,0.05); border-bottom: 1px solid rgba(226, 232, 240, 0.6); transition: var(--transition); }
         .nav-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 800; color: var(--dark); }
-        .logo-icon {
-            width: 44px; height: 44px; background: var(--gradient-1); color: var(--white); border-radius: 12px;
-            display: flex; align-items: center; justify-content: center; font-size: 20px;
-            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3); transition: var(--transition);
-        }
-        .logo:hover .logo-icon { transform: rotate(-10deg) scale(1.05); }
+        
+        /* UPDATED LOGO */
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 800; color: var(--dark); }
+        .logo img { width: 50px; height: 50px; object-fit: contain; transition: var(--transition); }
+        .logo:hover img { transform: scale(1.05); }
 
         .nav-links { display: flex; gap: 36px; align-items: center; }
         .nav-links a { font-weight: 600; font-size: 15px; color: var(--text-muted); transition: var(--transition); position: relative; padding: 4px 0; }
@@ -84,56 +49,33 @@
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .nav-links a:hover, .nav-links a.active { color: var(--dark); }
         .nav-actions { display: flex; align-items: center; gap: 12px; }
-
-        .btn {
-            padding: 13px 26px; border-radius: 12px; font-weight: 700; font-size: 15px;
-            cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
-            gap: 8px; border: none; transition: var(--transition); position: relative; overflow: hidden;
-        }
+        .btn { padding: 13px 26px; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: none; transition: var(--transition); position: relative; overflow: hidden; }
         .btn-primary { background: var(--gradient-1); color: var(--white); box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3); }
         .btn-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.6s ease; }
         .btn-primary:hover::before { left: 100%; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(6, 182, 212, 0.4); }
-
         .menu-btn { display: none; font-size: 24px; color: var(--dark); cursor: pointer; }
         .mobile-only-actions { display: none; }
 
-        /* =========================================
-           PAGE HERO (About Us)
-           ========================================= */
-        .page-hero {
-            padding: 100px 24px 60px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-        }
-        .page-hero .badge-live {
-            display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark);
-            border-radius: 30px; font-weight: 700; font-size: 13px; margin-bottom: 24px; border: 1px solid rgba(6, 182, 212, 0.2); backdrop-filter: blur(10px);
-        }
+        /* HERO */
+        .page-hero { padding: 100px 24px 60px; max-width: 900px; margin: 0 auto; text-align: center; position: relative; }
+        .page-hero .badge-live { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark); border-radius: 30px; font-weight: 700; font-size: 13px; margin-bottom: 24px; border: 1px solid rgba(6, 182, 212, 0.2); backdrop-filter: blur(10px); }
         .page-hero h1 { font-size: 4rem; line-height: 1.1; font-weight: 900; color: var(--dark); margin-bottom: 20px; }
         .page-hero h1 span { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .page-hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
 
-        /* =========================================
-           COMPANY STORY SECTION
-           ========================================= */
+        /* STORY */
         .story-section { padding: 60px 24px 100px; max-width: 1280px; margin: 0 auto; }
         .story-container { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
-        
         .story-image-wrapper { position: relative; }
         .story-img-card { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover; position: relative; z-index: 2; }
         .story-image-wrapper::before { content: ''; position: absolute; top: -20px; left: -20px; width: 200px; height: 200px; background: var(--gradient-1); border-radius: var(--radius-lg); z-index: 1; opacity: 0.15; }
         .story-image-wrapper::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 150px; height: 150px; background: var(--gradient-2); border-radius: var(--radius-lg); z-index: 1; opacity: 0.2; }
-
         .story-content .section-tag { display: inline-block; color: var(--primary-dark); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 20px; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border-radius: 30px; border: 1px solid rgba(6, 182, 212, 0.2); }
         .story-content h2 { font-size: 2.8rem; color: var(--dark); font-weight: 800; margin-bottom: 22px; line-height: 1.15; }
         .story-content p { color: var(--text-muted); font-size: 16px; margin-bottom: 20px; line-height: 1.8; }
 
-        /* =========================================
-           STATS SECTION
-           ========================================= */
+        /* STATS */
         .stats-section { background: var(--gray-light); padding: 80px 24px; position: relative; overflow: hidden; }
         .stats-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; position: relative; z-index: 2; }
         .stat-box { background: var(--white); padding: 40px 24px; border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-border); transition: var(--transition); position: relative; overflow: hidden; }
@@ -143,72 +85,49 @@
         .stat-box h3 { font-size: 3rem; font-weight: 900; margin-bottom: 8px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .stat-box p { color: var(--text-muted); font-size: 15px; font-weight: 600; }
 
-        /* =========================================
-           WHY CHOOSE US SECTION
-           ========================================= */
+        /* WHY CHOOSE US */
         .why-section { padding: 100px 24px; max-width: 1280px; margin: 0 auto; }
         .section-header { text-align: center; max-width: 720px; margin: 0 auto 60px; }
         .section-tag { display: inline-block; color: var(--primary-dark); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 16px; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border-radius: 30px; border: 1px solid rgba(6, 182, 212, 0.2); }
         .section-title { font-size: 3rem; color: var(--dark); font-weight: 800; margin-bottom: 18px; line-height: 1.15; }
         .section-subtitle { font-size: 17px; color: var(--text-muted); }
-
         .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
         .why-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--gray-border); padding: 40px 32px; transition: var(--transition); position: relative; overflow: hidden; }
         .why-card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08), transparent 60%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
         .why-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(6, 182, 212, 0.3); }
         .why-card:hover::after { opacity: 1; }
-        
         .why-icon { width: 60px; height: 60px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 24px; transition: var(--transition); }
         .why-card:hover .why-icon { background: var(--gradient-1); color: var(--white); transform: scale(1.1) rotate(-5deg); box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3); }
-        
         .why-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 12px; color: var(--dark); }
         .why-card p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
 
-        /* =========================================
-           TEAM / COMMITMENT SECTION
-           ========================================= */
+        /* COMMITMENT */
         .commitment-section { background: var(--dark); padding: 100px 24px; position: relative; overflow: hidden; color: var(--white); }
         .commitment-section::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(6, 182, 212, 0.15), transparent 70%); pointer-events: none; }
         .commitment-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
-        
         .commitment-content h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; line-height: 1.15; }
         .commitment-content p { color: #94a3b8; font-size: 16px; margin-bottom: 30px; }
-        
         .commitment-list li { display: flex; align-items: center; gap: 14px; font-weight: 500; color: var(--white); margin-bottom: 16px; padding: 14px 20px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); transition: var(--transition); }
         .commitment-list li:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--primary); transform: translateX(5px); }
         .commitment-list li i { color: var(--primary); font-size: 18px; }
-
         .commitment-image { position: relative; }
         .commitment-image img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.1); }
 
-        /* =========================================
-           CTA BANNER
-           ========================================= */
+        /* CTA */
         .cta-section { padding: 100px 24px; max-width: 1280px; margin: 0 auto; }
-        .cta-banner {
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
-            border: 1px solid var(--primary-glow);
-            border-radius: var(--radius-lg);
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+        .cta-banner { background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%); border: 1px solid var(--primary-glow); border-radius: var(--radius-lg); padding: 60px 40px; text-align: center; position: relative; overflow: hidden; }
         .cta-banner h2 { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; position: relative; z-index: 2; }
         .cta-banner p { font-size: 17px; color: var(--text-muted); margin-bottom: 32px; position: relative; z-index: 2; }
         .cta-banner .btn { padding: 16px 36px; font-size: 16px; position: relative; z-index: 2; }
 
-        /* =========================================
-           FOOTER & MAP
-           ========================================= */
+        /* FOOTER & MAP */
         .map-container { width: 100%; height: 400px; background: var(--gray-border); position: relative; }
         .map-container iframe { width: 100%; height: 100%; border: none; filter: grayscale(20%); }
-        
         footer { background: var(--dark); color: #94a3b8; padding: 90px 24px 30px; position: relative; overflow: hidden; }
         footer::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(6, 182, 212, 0.15), transparent 70%); pointer-events: none; }
         .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 48px; padding-bottom: 60px; border-bottom: 1px solid rgba(148, 163, 184, 0.2); position: relative; z-index: 2; }
         .footer-brand .logo { color: var(--white); margin-bottom: 22px; }
-        .footer-brand .logo-icon { background: var(--gradient-1); }
+        .footer-brand .logo img { width: 60px; height: auto; background: #fff; border-radius: 8px; padding: 4px; }
         .footer-brand p { font-size: 14px; line-height: 1.8; max-width: 320px; }
         .footer-col h4 { color: var(--white); margin-bottom: 24px; font-size: 16px; font-weight: 800; position: relative; padding-bottom: 12px; }
         .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--gradient-1); border-radius: 2px; }
@@ -218,18 +137,14 @@
         .contact-list i { color: var(--primary); font-size: 16px; margin-top: 4px; width: 32px; height: 32px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .footer-bottom { max-width: 1280px; margin: 30px auto 0; text-align: center; font-size: 14px; position: relative; z-index: 2; }
 
-        /* =========================================
-           MOBILE STICKY BAR
-           ========================================= */
+        /* MOBILE STICKY */
         .mobile-sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 4000; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
         .mobile-sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 0; font-size: 16px; font-weight: 700; color: #ffffff; text-decoration: none; transition: var(--transition); }
         .sticky-wa { background: linear-gradient(135deg, #25D366, #128C7E); }
         .sticky-call { background: var(--gradient-1); }
         @media (min-width: 769px) { .mobile-sticky-bar { display: none; } }
 
-        /* =========================================
-           RESPONSIVE
-           ========================================= */
+        /* RESPONSIVE */
         @media (max-width: 992px) {
             .page-hero h1 { font-size: 3rem; }
             .story-container { grid-template-columns: 1fr; gap: 40px; }
@@ -238,21 +153,14 @@
             .footer-container { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
-            body { padding-bottom: 64px; }
-            .menu-btn { display: block; }
-            .nav-actions { display: none; }
+            body { padding-bottom: 64px; } .menu-btn { display: block; } .nav-actions { display: none; }
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); flex-direction: column; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: clip-path 0.4s ease-in-out; gap: 18px; align-items: flex-start; }
             .nav-links.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
             .mobile-only-actions { display: flex; flex-direction: column; width: 100%; padding-top: 18px; border-top: 1px solid var(--gray-border); }
-
-            .page-hero { padding: 60px 20px 40px; }
-            .page-hero h1 { font-size: 2.4rem; }
-            .section-title { font-size: 2rem; }
-            
+            .page-hero { padding: 60px 20px 40px; } .page-hero h1 { font-size: 2.4rem; } .section-title { font-size: 2rem; }
             .why-section, .commitment-section, .cta-section { padding: 70px 20px; }
             .footer-container { grid-template-columns: 1fr; gap: 32px; }
-            .cta-banner { padding: 40px 20px; }
-            .cta-banner h2 { font-size: 2rem; }
+            .cta-banner { padding: 40px 20px; } .cta-banner h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -260,28 +168,25 @@
 
     <header class="header">
         <div class="nav-container">
-            <!-- Logo links to Home -->
+            <!-- UPDATED LOGO -->
             <a href="https://shriplumbingsolutions.in/" class="logo">
-                <div class="logo-icon"><i class="fa-solid fa-wrench"></i></div>
+                <img src="https://github.com/Growftofficial/shriplumbingsolutionswebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true" alt="Shri Plumbing Logo">
                 Shri Plumbing
             </a>
 
             <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
 
-            <!-- Navigation Links with Full URLs -->
             <ul class="nav-links">
                 <li><a href="https://shriplumbingsolutions.in/">Home</a></li>
                 <li><a href="https://shriplumbingsolutions.in/service/">Services</a></li>
                 <li><a href="https://shriplumbingsolutions.in/about-us/" class="active">About Us</a></li>
                 <li><a href="https://shriplumbingsolutions.in/contact/">Contact</a></li>
                 
-                <!-- Mobile Only Button -->
                 <li class="mobile-only-actions">
                     <a href="tel:+918421554079" class="btn btn-primary" style="width: 100%;">Call Now</a>
                 </li>
             </ul>
 
-            <!-- Desktop Actions -->
             <div class="nav-actions">
                 <a href="tel:+918421554079" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
             </div>
@@ -315,7 +220,7 @@
         </div>
     </section>
 
-    <!-- STATS SECTION -->
+    <!-- STATS -->
     <section class="stats-section">
         <div class="stats-grid reveal">
             <div class="stat-box">
@@ -379,7 +284,7 @@
         </div>
     </section>
 
-    <!-- OUR COMMITMENT -->
+    <!-- COMMITMENT -->
     <section class="commitment-section">
         <div class="commitment-container">
             <div class="commitment-image reveal">
@@ -399,7 +304,7 @@
         </div>
     </section>
 
-    <!-- CTA SECTION -->
+    <!-- CTA -->
     <section class="cta-section">
         <div class="cta-banner reveal">
             <h2>Experience the Shri Plumbing Difference</h2>
@@ -416,7 +321,7 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="logo">
-                    <div class="logo-icon"><i class="fa-solid fa-wrench"></i></div>
+                    <img src="https://github.com/Growftofficial/shriplumbingsolutionswebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true" alt="Shri Plumbing Logo">
                     Shri Plumbing
                 </div>
                 <p>Bhosari & PCMC's trusted plumbing experts. Fast, reliable, and affordable services for homes and businesses.</p>
@@ -444,8 +349,8 @@
                 <h4>Contact Info</h4>
                 <ul class="contact-list">
                     <li><i class="fa-solid fa-phone"></i> <span>+91 84215 54079</span></li>
+                    <li><i class="fa-solid fa-envelope"></i> <span>rajeshdhande1989@gmail.com</span></li>
                     <li><i class="fa-solid fa-location-dot"></i> <span>Pandav Nagar No.1, Chakrapani Road, Bhosari, Pune - 411039</span></li>
-                    <li><i class="fa-regular fa-envelope"></i> <span>contact@shriplumbingsolutions.in</span></li>
                 </ul>
                 <p style="margin-top: 20px; font-size: 14px;">Mon–Sun: 24/7 Available<br>Emergency Calls Accepted</p>
             </div>
@@ -465,7 +370,6 @@
     </div>
 
     <script>
-        // Mobile menu toggle
         const menuBtn = document.querySelector('.menu-btn');
         const navLinks = document.querySelector('.nav-links');
         const menuIcon = menuBtn.querySelector('i');
@@ -489,7 +393,6 @@
             });
         });
 
-        // Reveal on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -500,7 +403,6 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Header scroll effect
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
