@@ -6,12 +6,15 @@
     <title>Shri Plumbing Solutions | 24/7 Expert Plumber in Bhosari, Pune</title>
     <meta name="description" content="Professional & 24/7 emergency plumbing services in Bhosari, Pune. Pandav Nagar, Chakrapani Road & PCMC experts. Call +91 84215 54079 now!">
 
+    <!-- Font & CSS Pre-connections for Faster Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="icon" type="image/png" href="https://github.com/Growftofficial/shriplumbingsolutionswebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true">
+    <link rel="icon" type="image/png" href="https://github.com/Growftofficial/shriplumbingsolutionwebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true">
 
     <script type="application/ld+json">
     {
@@ -35,21 +38,20 @@
         "closes": "23:59"
       },
       "priceRange": "₹₹",
-      "areaServed": {
-        "@type": "City",
-        "name": "Bhosari, PCMC, Pune"
-      }
+      "areaServed": { "@type": "City", "name": "Bhosari, PCMC, Pune" }
     }
     </script>
 
     <style>
+        /* =========================================
+           CSS VARIABLES & DESIGN SYSTEM (Optimized)
+           ========================================= */
         :root {
             --primary: #06b6d4;
             --primary-dark: #0891b2;
             --primary-light: #cffafe;
             --primary-glow: rgba(6, 182, 212, 0.4);
             --accent: #f97316;
-            --accent-hover: #ea580c;
             --danger: #ef4444;
             --dark: #0f172a;
             --dark-card: #1e293b;
@@ -64,7 +66,6 @@
             --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
             --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.3);
             --radius-md: 16px;
             --radius-lg: 24px;
             --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -75,11 +76,15 @@
         h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; letter-spacing: -0.03em; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
+        
+        /* Performance Optimization */
+        img { max-width: 100%; height: auto; }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; z-index: 0; pointer-events: none; }
+        /* Floating Blob Backgrounds (Reduced Blur for Performance) */
+        .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.4; z-index: 0; pointer-events: none; }
         .blob-1 { width: 400px; height: 400px; background: var(--primary-glow); top: -100px; right: -100px; animation: float 8s ease-in-out infinite; }
         .blob-2 { width: 300px; height: 300px; background: rgba(249, 115, 22, 0.2); bottom: 100px; left: -80px; animation: float 10s ease-in-out infinite reverse; }
 
@@ -88,16 +93,19 @@
             50% { transform: translate(30px, -30px) scale(1.1); }
         }
 
+        /* =========================================
+           HEADER & NAVIGATION
+           ========================================= */
         .header {
             position: sticky; top: 0; z-index: 1000;
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
             box-shadow: 0 1px 0 rgba(0,0,0,0.05); border-bottom: 1px solid rgba(226, 232, 240, 0.6);
             transition: var(--transition);
         }
-        .nav-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; }
+        .nav-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; }
         
-        .logo { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 800; color: var(--dark); }
-        .logo img { width: 50px; height: 50px; object-fit: contain; transition: var(--transition); }
+        .logo { display: flex; align-items: center; transition: var(--transition); }
+        .logo img { height: 50px; width: auto; object-fit: contain; transition: var(--transition); }
         .logo:hover img { transform: scale(1.05); }
 
         .nav-links { display: flex; gap: 36px; align-items: center; }
@@ -108,48 +116,29 @@
         .nav-actions { display: flex; align-items: center; gap: 12px; }
 
         .btn {
-            padding: 13px 26px; border-radius: 12px; font-weight: 700; font-size: 15px;
+            padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: 15px;
             cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
             gap: 8px; border: none; transition: var(--transition); position: relative; overflow: hidden;
         }
         .btn-primary { background: var(--gradient-1); color: var(--white); box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3); }
-        .btn-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.6s ease; }
-        .btn-primary:hover::before { left: 100%; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(6, 182, 212, 0.4); }
 
         .menu-btn { display: none; font-size: 24px; color: var(--dark); cursor: pointer; }
         .mobile-only-actions { display: none; }
 
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(8px);
-            z-index: 5000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: var(--transition);
-        }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content {
-            background: var(--white); width: 90%; max-width: 480px; border-radius: var(--radius-lg); padding: 44px; position: relative;
-            transform: translateY(30px) scale(0.95); transition: var(--transition); box-shadow: 0 40px 100px rgba(0,0,0,0.3);
-        }
-        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
-        .close-modal {
-            position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; background: var(--gray-light); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: var(--transition);
-        }
-        .close-modal:hover { background: var(--danger); color: var(--white); transform: rotate(90deg); }
-        .form-control { width: 100%; padding: 15px 18px; border-radius: 12px; border: 2px solid var(--gray-border); outline: none; margin-bottom: 16px; font-size: 15px; transition: var(--transition); background: var(--gray-light); font-family: inherit; }
-        .form-control:focus { border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 4px var(--primary-glow); }
-        .modal-content h3 { font-size: 28px; margin-bottom: 8px; color: var(--dark); font-weight: 800; }
-        .modal-content p { color: var(--text-muted); margin-bottom: 24px; font-size: 14px; }
-
-        .hero { padding: 90px 24px 110px; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; }
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero { padding: 80px 24px 100px; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; }
         .hero-content { position: relative; z-index: 2; }
         .badge-live {
             display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark);
-            border-radius: 30px; font-weight: 700; font-size: 13px; margin-bottom: 28px; border: 1px solid rgba(6, 182, 212, 0.2); backdrop-filter: blur(10px);
+            border-radius: 30px; font-weight: 700; font-size: 13px; margin-bottom: 24px; border: 1px solid rgba(6, 182, 212, 0.2);
         }
-        .badge-live::before { content: ''; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+        .badge-live::before { content: ''; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
         
-        .hero h1 { font-size: 4.2rem; line-height: 1.05; font-weight: 900; color: var(--dark); margin-bottom: 24px; }
+        .hero h1 { font-size: 4rem; line-height: 1.1; font-weight: 900; color: var(--dark); margin-bottom: 24px; }
         .hero h1 span { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero p { font-size: 18px; color: var(--text-muted); margin-bottom: 38px; max-width: 540px; }
         .hero-btns { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; }
@@ -165,22 +154,24 @@
         .hero-img-card { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover; position: relative; z-index: 2; animation: heroFloat 6s ease-in-out infinite; }
         @keyframes heroFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         .hero-image-wrapper::before { content: ''; position: absolute; top: -20px; right: -20px; width: 200px; height: 200px; background: var(--gradient-1); border-radius: var(--radius-lg); z-index: 1; opacity: 0.15; }
-        .hero-image-wrapper::after { content: ''; position: absolute; bottom: -20px; left: -20px; width: 150px; height: 150px; background: var(--gradient-2); border-radius: var(--radius-lg); z-index: 1; opacity: 0.2; }
 
+        /* =========================================
+           SERVICES SECTION
+           ========================================= */
         .section-header { text-align: center; max-width: 720px; margin: 0 auto 60px; }
         .section-tag { display: inline-block; color: var(--primary-dark); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 16px; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border-radius: 30px; border: 1px solid rgba(6, 182, 212, 0.2); }
-        .section-title { font-size: 3rem; color: var(--dark); font-weight: 800; margin-bottom: 18px; line-height: 1.15; }
+        .section-title { font-size: 2.8rem; color: var(--dark); font-weight: 800; margin-bottom: 18px; line-height: 1.15; }
         .section-subtitle { font-size: 17px; color: var(--text-muted); }
 
-        .services-section-basic { padding: 110px 24px; background: var(--gray-light); position: relative; overflow: hidden; }
-        .services-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 30px; position: relative; z-index: 2; }
+        .services-section-basic { padding: 100px 24px; background: var(--gray-light); position: relative; overflow: hidden; }
+        .services-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; position: relative; z-index: 2; }
         .service-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--gray-border); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; box-shadow: var(--shadow-sm); }
         .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(6, 182, 212, 0.3); }
-        .service-img-wrap { position: relative; height: 200px; overflow: hidden; }
+        .service-img-wrap { position: relative; height: 200px; overflow: hidden; background: #e2e8f0; }
         .service-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .service-card:hover .service-img-wrap img { transform: scale(1.08); }
         .service-badge { position: absolute; top: 16px; right: 16px; background: var(--white); color: var(--primary-dark); padding: 6px 14px; border-radius: 30px; font-size: 12px; font-weight: 800; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 2; }
-        .service-body { padding: 30px 26px; display: flex; flex-direction: column; flex-grow: 1; }
+        .service-body { padding: 28px 24px; display: flex; flex-direction: column; flex-grow: 1; }
         .service-icon { width: 46px; height: 46px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-top: -50px; margin-bottom: 20px; position: relative; z-index: 3; border: 4px solid var(--white); box-shadow: var(--shadow-sm); }
         .service-body h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; color: var(--dark); line-height: 1.3; }
         .service-body > p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
@@ -193,20 +184,22 @@
         .btn-call-icon { width: 36px; height: 36px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
         .btn-call-icon:hover { background: var(--gradient-1); color: var(--white); }
 
-        .services-section { padding: 110px 24px; background: var(--white); position: relative; overflow: hidden; }
-        .thermal-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 32px; justify-content: center; position: relative; z-index: 2; }
+        /* =========================================
+           THERMAL SERVICES SECTION
+           ========================================= */
+        .services-section { padding: 100px 24px; background: var(--white); position: relative; overflow: hidden; }
+        .thermal-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; justify-content: center; position: relative; z-index: 2; }
         .thermal-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--gray-border); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; box-shadow: var(--shadow-sm); }
         .thermal-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(6, 182, 212, 0.3); }
-        .thermal-card-img-wrapper { position: relative; overflow: hidden; height: 220px; }
+        .thermal-card-img-wrapper { position: relative; overflow: hidden; height: 220px; background: #e2e8f0; }
         .thermal-card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .thermal-card:hover .thermal-card-img { transform: scale(1.08); }
-        .thermal-card-img-wrapper::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.4), transparent 60%); }
-        .thermal-card-body { padding: 30px 26px; display: flex; flex-direction: column; flex-grow: 1; }
+        .thermal-card-body { padding: 28px 24px; display: flex; flex-direction: column; flex-grow: 1; }
         .thermal-card-body h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; color: var(--dark); line-height: 1.4; }
         .thermal-card-body p { color: var(--text-muted); font-size: 14.5px; line-height: 1.7; margin-bottom: 20px; }
         .thermal-checklist { margin-bottom: 26px; flex-grow: 1; }
         .thermal-checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-dark); margin-bottom: 10px; line-height: 1.5; }
-        .thermal-checklist li i { color: #22c55e; font-size: 14px; margin-top: 4px; width: 18px; height: 18px; background: rgba(34, 197, 94, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .thermal-checklist li i { color: #22c55e; font-size: 14px; margin-top: 4px; flex-shrink: 0; }
         .thermal-actions { display: flex; gap: 10px; }
         .thermal-actions a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px; transition: var(--transition); }
         .btn-whatsapp { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
@@ -214,9 +207,11 @@
         .btn-call { background: rgba(6, 182, 212, 0.1); color: var(--primary-dark); border: 1px solid rgba(6, 182, 212, 0.2); }
         .btn-call:hover { background: var(--gradient-1); color: #fff; border-color: transparent; transform: translateY(-2px); }
 
-        .about-section { background: var(--gray-bg); padding: 110px 24px; position: relative; overflow: hidden; }
-        .about-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; position: relative; z-index: 2; }
-        .about-content .section-tag { margin-bottom: 20px; }
+        /* =========================================
+           ABOUT SECTION
+           ========================================= */
+        .about-section { background: var(--gray-bg); padding: 100px 24px; position: relative; overflow: hidden; }
+        .about-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
         .about-content h2 { font-size: 2.8rem; color: var(--dark); font-weight: 800; margin-bottom: 22px; line-height: 1.15; }
         .about-content p { color: var(--text-muted); font-size: 16px; margin-bottom: 28px; }
         .about-list { margin-bottom: 30px; }
@@ -224,24 +219,27 @@
         .about-list li:hover { border-color: var(--primary); transform: translateX(5px); }
         .about-list li i { color: var(--white); font-size: 12px; width: 24px; height: 24px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .about-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .stat-box { background: var(--white); padding: 36px 24px; border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-border); transition: var(--transition); position: relative; overflow: hidden; }
-        .stat-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gradient-1); transform: scaleX(0); transition: transform 0.4s ease; }
-        .stat-box:hover::before { transform: scaleX(1); }
+        .stat-box { background: var(--white); padding: 36px 24px; border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-border); transition: var(--transition); }
         .stat-box:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
         .stat-box h3 { font-size: 2.8rem; font-weight: 900; margin-bottom: 8px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .stat-box p { color: var(--text-muted); font-size: 14px; font-weight: 600; }
 
-        .testimonials-section { padding: 110px 24px; max-width: 1280px; margin: 0 auto; background: var(--white); }
+        /* =========================================
+           TESTIMONIALS
+           ========================================= */
+        .testimonials-section { padding: 100px 24px; max-width: 1280px; margin: 0 auto; background: var(--white); }
         .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
-        .testi-card { background: var(--white); padding: 40px 36px; border-radius: var(--radius-lg); border: 1px solid var(--gray-border); display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition); position: relative; }
-        .testi-card::before { content: '"'; position: absolute; top: 10px; right: 30px; font-size: 100px; font-family: Georgia, serif; line-height: 1; color: var(--primary-glow); opacity: 0.3; font-weight: 900; }
+        .testi-card { background: var(--white); padding: 40px 36px; border-radius: var(--radius-lg); border: 1px solid var(--gray-border); display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition); }
         .testi-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
         .testi-stars { color: #fbbf24; margin-bottom: 16px; font-size: 14px; letter-spacing: 2px; }
-        .testi-text { font-size: 15px; margin-bottom: 28px; color: var(--text-dark); line-height: 1.8; position: relative; z-index: 1; }
+        .testi-text { font-size: 15px; margin-bottom: 28px; color: var(--text-dark); line-height: 1.8; }
         .testi-user { display: flex; align-items: center; gap: 14px; }
-        .user-avatar { width: 52px; height: 52px; background: var(--gradient-1); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; box-shadow: 0 6px 16px rgba(6, 182, 212, 0.3); }
+        .user-avatar { width: 52px; height: 52px; background: var(--gradient-1); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; }
 
-        .faq-section { background: var(--gray-light); padding: 110px 24px; }
+        /* =========================================
+           FAQ SECTION
+           ========================================= */
+        .faq-section { background: var(--gray-light); padding: 100px 24px; }
         .faq-wrapper { max-width: 820px; margin: 0 auto; }
         .accordion-item { background: var(--white); border-radius: var(--radius-md); border: 1px solid var(--gray-border); margin-bottom: 16px; overflow: hidden; transition: var(--transition); }
         .accordion-item.active { border-color: var(--primary); box-shadow: var(--shadow-md); }
@@ -252,13 +250,16 @@
         .accordion-content { max-height: 0; overflow: hidden; padding: 0 28px; color: var(--text-muted); transition: all 0.4s ease; }
         .accordion-item.active .accordion-content { max-height: 300px; padding: 0 28px 24px; }
 
+        /* =========================================
+           MAP & FOOTER
+           ========================================= */
         .map-container { width: 100%; height: 400px; background: var(--gray-border); position: relative; }
-        .map-container iframe { width: 100%; height: 100%; border: none; filter: grayscale(20%); }
-        footer { background: var(--dark); color: #94a3b8; padding: 90px 24px 30px; position: relative; overflow: hidden; }
-        footer::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(6, 182, 212, 0.15), transparent 70%); pointer-events: none; }
-        .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 48px; padding-bottom: 60px; border-bottom: 1px solid rgba(148, 163, 184, 0.2); position: relative; z-index: 2; }
-        .footer-brand .logo { color: var(--white); margin-bottom: 22px; }
-        .footer-brand .logo img { width: 60px; height: auto; background: #fff; border-radius: 8px; padding: 4px; }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        
+        footer { background: var(--dark); color: #94a3b8; padding: 80px 24px 30px; position: relative; }
+        .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 40px; padding-bottom: 60px; border-bottom: 1px solid rgba(148, 163, 184, 0.2); position: relative; z-index: 2; }
+        .footer-brand .logo { margin-bottom: 22px; }
+        .footer-brand .logo img { height: 60px; width: auto; background: #fff; border-radius: 8px; padding: 4px; }
         .footer-brand p { font-size: 14px; line-height: 1.8; max-width: 320px; }
         .footer-col h4 { color: var(--white); margin-bottom: 24px; font-size: 16px; font-weight: 800; position: relative; padding-bottom: 12px; }
         .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--gradient-1); border-radius: 2px; }
@@ -268,15 +269,31 @@
         .contact-list i { color: var(--primary); font-size: 16px; margin-top: 4px; width: 32px; height: 32px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .footer-bottom { max-width: 1280px; margin: 30px auto 0; text-align: center; font-size: 14px; position: relative; z-index: 2; }
 
+        /* =========================================
+           MODAL & MOBILE BAR
+           ========================================= */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(8px); z-index: 5000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: var(--transition); }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: var(--white); width: 90%; max-width: 480px; border-radius: var(--radius-lg); padding: 40px; position: relative; transform: translateY(30px); transition: var(--transition); box-shadow: 0 40px 100px rgba(0,0,0,0.3); }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .close-modal { position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; background: var(--gray-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: var(--transition); }
+        .close-modal:hover { background: var(--danger); color: var(--white); transform: rotate(90deg); }
+        .form-control { width: 100%; padding: 15px 18px; border-radius: 12px; border: 2px solid var(--gray-border); outline: none; margin-bottom: 16px; font-size: 15px; transition: var(--transition); background: var(--gray-light); font-family: inherit; }
+        .form-control:focus { border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 4px var(--primary-glow); }
+        .modal-content h3 { font-size: 28px; margin-bottom: 8px; color: var(--dark); font-weight: 800; }
+        .modal-content p { color: var(--text-muted); margin-bottom: 24px; font-size: 14px; }
+
         .mobile-sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 4000; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
-        .mobile-sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 0; font-size: 16px; font-weight: 700; color: #ffffff; text-decoration: none; transition: var(--transition); }
-        .mobile-sticky-bar a:active { opacity: 0.85; transform: scale(0.98); }
+        .mobile-sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 0; font-size: 16px; font-weight: 700; color: #ffffff; }
         .sticky-wa { background: linear-gradient(135deg, #25D366, #128C7E); }
         .sticky-call { background: var(--gradient-1); }
         @media (min-width: 769px) { .mobile-sticky-bar { display: none; } }
 
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
         @media (max-width: 992px) {
-            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 60px; gap: 40px; }
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 50px; gap: 40px; }
             .hero p { margin: 0 auto 36px; }
             .hero-btns, .hero-stats-row { justify-content: center; }
             .hero h1 { font-size: 3rem; }
@@ -296,7 +313,7 @@
             .hero h1 { font-size: 2.4rem; }
             .hero p { font-size: 16px; }
             .section-title { font-size: 2rem; }
-            .services-section-basic, .services-section, .about-section, .testimonials-section, .faq-section { padding: 70px 20px; }
+            .services-section-basic, .services-section, .about-section, .testimonials-section, .faq-section { padding: 60px 20px; }
             .footer-container { grid-template-columns: 1fr; gap: 32px; }
             .about-stats-grid { grid-template-columns: 1fr 1fr; }
             .thermal-grid, .services-grid { grid-template-columns: 1fr; }
@@ -311,8 +328,7 @@
     <header class="header">
         <div class="nav-container">
             <a href="https://shriplumbingsolutions.in/" class="logo">
-                <img src="https://github.com/Growftofficial/shriplumbingsolutionswebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true" alt="Shri Plumbing Logo">
-                Shri Plumbing
+                <img src="https://github.com/Growftofficial/shriplumbingsolutionwebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true" alt="Shri Plumbing Logo" width="150" height="50">
             </a>
 
             <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
@@ -352,7 +368,7 @@
             </div>
         </div>
         <div class="hero-image-wrapper reveal">
-            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200" alt="Professional Plumber in Bhosari" class="hero-img-card">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=75&w=800&auto=format&fit=crop" alt="Professional Plumber in Bhosari" class="hero-img-card" width="600" height="400">
         </div>
     </section>
 
@@ -365,10 +381,11 @@
         </div>
         
         <div class="services-grid">
+            <!-- Service 1 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
                     <span class="service-badge">30 Min Arrival</span>
-                    <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&q=80&w=600" alt="Emergency Plumber">
+                    <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&q=75&w=500" alt="Emergency Plumber" loading="lazy" decoding="async" width="500" height="200">
                 </div>
                 <div class="service-body">
                     <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
@@ -385,10 +402,13 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Service 2 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
                     <span class="service-badge">Deep Clean</span>
-                    <img src="https://i.pinimg.com/1200x/27/38/7f/27387fdd741fc7662f2e08ecf7565da8.jpg" alt="Toilet and Drain Cleaning">
+                    <!-- Optimized Pinterest Image using WP for faster load -->
+                    <img src="https://i.pinimg.com/736x/27/38/7f/27387fdd741fc7662f2e08ecf7565da8.jpg" alt="Toilet and Drain Cleaning" loading="lazy" decoding="async" width="500" height="200">
                 </div>
                 <div class="service-body">
                     <div class="service-icon"><i class="fa-solid fa-water"></i></div>
@@ -405,10 +425,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Service 3 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
                     <span class="service-badge">Non-Invasive</span>
-                    <img src="https://i.pinimg.com/1200x/d9/93/e6/d993e61d083069f31419791e399e421d.jpg" alt="Pipe Fitting and Leak Detection">
+                    <img src="https://i.pinimg.com/736x/d9/93/e6/d993e61d083069f31419791e399e421d.jpg" alt="Pipe Fitting and Leak Detection" loading="lazy" decoding="async" width="500" height="200">
                 </div>
                 <div class="service-body">
                     <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
@@ -425,10 +447,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Service 4 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
                     <span class="service-badge">Luxury Finish</span>
-                    <img src="https://i.pinimg.com/1200x/b3/9e/f0/b39ef0d5d667a339f4717c047bc5e7ee.jpg" alt="Bathroom and Kitchen Fittings">
+                    <img src="https://i.pinimg.com/736x/b3/9e/f0/b39ef0d5d667a339f4717c047bc5e7ee.jpg" alt="Bathroom and Kitchen Fittings" loading="lazy" decoding="async" width="500" height="200">
                 </div>
                 <div class="service-body">
                     <div class="service-icon"><i class="fa-solid fa-shower"></i></div>
@@ -445,10 +469,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Service 5 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
                     <span class="service-badge">Certified Techs</span>
-                    <img src="https://i.pinimg.com/736x/26/9b/7a/269b7aa1faea87b8bffbc3edc639732d.jpg" alt="Water Geyser Repair">
+                    <img src="https://i.pinimg.com/736x/26/9b/7a/269b7aa1faea87b8bffbc3edc639732d.jpg" alt="Water Geyser Repair" loading="lazy" decoding="async" width="500" height="200">
                 </div>
                 <div class="service-body">
                     <div class="service-icon"><i class="fa-solid fa-fire-burner"></i></div>
@@ -465,10 +491,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Service 6 -->
             <div class="service-card reveal">
                 <div class="service-img-wrap">
                     <span class="service-badge">Hygienic</span>
-                    <img src="https://i.pinimg.com/736x/a6/80/60/a68060d36eb00720453dd5e7cd437a29.jpg" alt="Water Tank Cleaning and Installation">
+                    <img src="https://i.pinimg.com/736x/a6/80/60/a68060d36eb00720453dd5e7cd437a29.jpg" alt="Water Tank Cleaning and Installation" loading="lazy" decoding="async" width="500" height="200">
                 </div>
                 <div class="service-body">
                     <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
@@ -497,9 +525,10 @@
         </div>
 
         <div class="thermal-grid">
+            <!-- Card 1 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600" alt="Concealed Bathroom Pipe" class="thermal-card-img">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=75&w=500" alt="Concealed Bathroom Pipe" class="thermal-card-img" loading="lazy" decoding="async" width="500" height="220">
                 </div>
                 <div class="thermal-card-body">
                     <h3>Concealed Bathroom Pipe & Trap Leaks</h3>
@@ -516,9 +545,11 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Card 2 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
-                    <img src="https://i.pinimg.com/1200x/1d/af/1e/1daf1efd6230f02f9d76022f6f46b4e4.jpg" alt="Ceiling Seepage" class="thermal-card-img">
+                    <img src="https://i.pinimg.com/736x/1d/af/1e/1daf1efd6230f02f9d76022f6f46b4e4.jpg" alt="Ceiling Seepage" class="thermal-card-img" loading="lazy" decoding="async" width="500" height="220">
                 </div>
                 <div class="thermal-card-body">
                     <h3>Upper Floor Ceiling Seepage & Slab Dripping</h3>
@@ -535,9 +566,11 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Card 3 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
-                    <img src="https://i.pinimg.com/236x/4c/ee/77/4cee77e30c6d46b9809fc224a02eefda.jpg" alt="Wall Dampness" class="thermal-card-img">
+                    <img src="https://i.pinimg.com/736x/4c/ee/77/4cee77e30c6d46b9809fc224a02eefda.jpg" alt="Wall Dampness" class="thermal-card-img" loading="lazy" decoding="async" width="500" height="220">
                 </div>
                 <div class="thermal-card-body">
                     <h3>Wall Dampness, Efflorescence & Paint Peeling</h3>
@@ -554,9 +587,11 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Card 4 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
-                    <img src="https://i.pinimg.com/736x/a8/d8/7b/a8d87b8f07e3b377d0421d2bfe9e7fe7.jpg" alt="Terrace Rainwater Ingress" class="thermal-card-img">
+                    <img src="https://i.pinimg.com/736x/a8/d8/7b/a8d87b8f07e3b377d0421d2bfe9e7fe7.jpg" alt="Terrace Rainwater Ingress" class="thermal-card-img" loading="lazy" decoding="async" width="500" height="220">
                 </div>
                 <div class="thermal-card-body">
                     <h3>Terrace & Parapet Rainwater Ingress</h3>
@@ -573,9 +608,11 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Card 5 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
-                    <img src="https://i.pinimg.com/1200x/49/50/0d/49500daaa09fbd04e8136a703db11172.jpg" alt="Concealed Drainage" class="thermal-card-img">
+                    <img src="https://i.pinimg.com/736x/49/50/0d/49500daaa09fbd04e8136a703db11172.jpg" alt="Concealed Drainage" class="thermal-card-img" loading="lazy" decoding="async" width="500" height="220">
                 </div>
                 <div class="thermal-card-body">
                     <h3>Concealed Drainage & Soil Pipe Cracks</h3>
@@ -592,9 +629,11 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Card 6 -->
             <div class="thermal-card reveal">
                 <div class="thermal-card-img-wrapper">
-                    <img src="https://i.pinimg.com/736x/71/bd/a3/71bda3777890eb57b5c88305302af2ed.jpg" alt="Commercial Roofs" class="thermal-card-img">
+                    <img src="https://i.pinimg.com/736x/71/bd/a3/71bda3777890eb57b5c88305302af2ed.jpg" alt="Commercial Roofs" class="thermal-card-img" loading="lazy" decoding="async" width="500" height="220">
                 </div>
                 <div class="thermal-card-body">
                     <h3>Commercial, Showroom & Industrial Roofs</h3>
@@ -614,6 +653,7 @@
         </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section class="about-section" id="about">
         <div class="about-container">
             <div class="about-content reveal">
@@ -651,6 +691,7 @@
         </div>
     </section>
 
+    <!-- TESTIMONIALS -->
     <section class="testimonials-section" id="testimonials">
         <div class="section-header reveal">
             <span class="section-tag">TESTIMONIALS</span>
@@ -685,6 +726,7 @@
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq-section" id="faq">
         <div class="section-header reveal">
             <span class="section-tag">FAQ</span>
@@ -716,16 +758,15 @@
     </section>
 
     <!-- UPDATED MAP SECTION -->
-    <div class="map-container">
-        <iframe src="https://maps.app.goo.gl/uAjTCCPauxqYuA5aA" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-container reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.840496369912!2d73.85495257579863!3d18.626242665936868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7a64b15492b%3A0x8c2a2f2f87afb28e!2sShri%20plumbing%20solutions!5e0!3m2!1sen!2sin!4v1794398228712!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
 
     <footer id="contact">
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="https://github.com/Growftofficial/shriplumbingsolutionswebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true" alt="Shri Plumbing Logo">
-                    Shri Plumbing
+                    <img src="https://github.com/Growftofficial/shriplumbingsolutionwebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true" alt="Shri Plumbing Logo" width="120" height="50" loading="lazy">
                 </div>
                 <p>Bhosari & PCMC's trusted plumbing experts. Fast, reliable, and affordable services for homes and businesses.</p>
             </div>
@@ -764,6 +805,7 @@
         </div>
     </footer>
 
+    <!-- BOOKING MODAL -->
     <div class="modal-overlay" id="bookingModal">
         <div class="modal-content">
             <div class="close-modal" onclick="closeModal()">
@@ -791,6 +833,7 @@
     </div>
 
     <script>
+        // Mobile menu toggle
         const menuBtn = document.querySelector('.menu-btn');
         const navLinks = document.querySelector('.nav-links');
         const menuIcon = menuBtn.querySelector('i');
@@ -814,25 +857,21 @@
             });
         });
 
+        // Modal Logic
         const modal = document.getElementById('bookingModal');
-
         function openModal() {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            navLinks.classList.remove('active');
-            menuIcon.classList.remove('fa-xmark');
-            menuIcon.classList.add('fa-bars');
         }
-
         function closeModal() {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
-
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
 
+        // Accordion Logic
         const items = document.querySelectorAll('.accordion-item');
         items.forEach(item => {
             item.querySelector('.accordion-header').addEventListener('click', () => {
@@ -841,16 +880,18 @@
             });
         });
 
+        // Scroll Animations (Optimized Intersection Observer)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Stops observing once revealed to save CPU
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+        // Sticky Header Effect
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -858,7 +899,7 @@
             } else {
                 header.style.boxShadow = '0 1px 0 rgba(0,0,0,0.05)';
             }
-        });
+        }, { passive: true }); // Passive event listener for better scroll performance
     </script>
 </body>
 </html>
