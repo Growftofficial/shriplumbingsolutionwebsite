@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-x: hidden;">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- VIEWPORT FIX: Disabled user scaling to prevent unwanted zoom -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>Our Services | Shri Plumbing Solutions | Bhosari, Pune</title>
     <meta name="description" content="Explore all plumbing services by Shri Plumbing Solutions. From 24/7 emergency repairs to thermal leak detection, bathroom fittings, and water tank cleaning in Bhosari, PCMC.">
 
@@ -10,11 +12,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://i.pinimg.com">
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Non-Blocking CSS -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap"></noscript>
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
-    <!-- FIXED FAVICON -->
     <link rel="icon" type="image/png" href="https://github.com/Growftofficial/shriplumbingsolutionwebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true">
 
     <style>
@@ -48,14 +55,28 @@
             --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; letter-spacing: -0.03em; }
+        /* FIX: Strict Overflow Control */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth; 
+            max-width: 100%;
+        }
+        
+        body { 
+            background-color: var(--white); 
+            color: var(--text-dark); 
+            line-height: 1.7; 
+            overflow-x: hidden; 
+            position: relative;
+        }
+        
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; letter-spacing: -0.03em; overflow-wrap: break-word; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
-        
-        /* Image Optimization */
-        img { max-width: 100%; height: auto; }
+        img { max-width: 100%; height: auto; display: block; }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -74,15 +95,15 @@
            ========================================= */
         .header {
             position: sticky; top: 0; z-index: 1000;
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
             box-shadow: 0 1px 0 rgba(0,0,0,0.05); border-bottom: 1px solid rgba(226, 232, 240, 0.6);
             transition: var(--transition);
         }
-        .nav-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; }
+        .nav-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
         
         /* FIXED LOGO */
         .logo { display: flex; align-items: center; transition: var(--transition); }
-        .logo img { height: 50px; width: auto; object-fit: contain; transition: var(--transition); }
+        .logo img { height: 45px; width: auto; object-fit: contain; transition: var(--transition); }
         .logo:hover img { transform: scale(1.05); }
 
         .nav-links { display: flex; gap: 36px; align-items: center; }
@@ -96,6 +117,7 @@
             padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: 15px;
             cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
             gap: 8px; border: none; transition: var(--transition); position: relative; overflow: hidden;
+            text-align: center;
         }
         .btn-primary { background: var(--gradient-1); color: var(--white); box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(6, 182, 212, 0.4); }
@@ -107,7 +129,7 @@
            PAGE HERO (Services)
            ========================================= */
         .page-hero {
-            padding: 90px 24px 50px;
+            padding: 80px 20px 40px;
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
@@ -115,52 +137,52 @@
         }
         .page-hero .badge-live {
             display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark);
-            border-radius: 30px; font-weight: 700; font-size: 13px; margin-bottom: 24px; border: 1px solid rgba(6, 182, 212, 0.2); backdrop-filter: blur(10px);
+            border-radius: 30px; font-weight: 700; font-size: 13px; margin-bottom: 24px; border: 1px solid rgba(6, 182, 212, 0.2);
         }
-        .page-hero h1 { font-size: 3.8rem; line-height: 1.1; font-weight: 900; color: var(--dark); margin-bottom: 20px; }
+        .page-hero h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 900; color: var(--dark); margin-bottom: 20px; }
         .page-hero h1 span { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .page-hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+        .page-hero p { font-size: 17px; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
 
         /* =========================================
-           SERVICES CATEGORIES NAVIGATION (Sticky)
+           SERVICES CATEGORIES NAVIGATION
            ========================================= */
         .category-nav {
-            position: sticky; top: 74px; z-index: 900;
+            position: sticky; top: 70px; z-index: 900;
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--gray-border);
-            padding: 16px 24px;
+            padding: 16px 20px;
             display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
         }
         .category-nav a {
             padding: 8px 20px; border-radius: 30px; font-weight: 600; font-size: 14px; color: var(--text-muted);
-            background: var(--gray-light); border: 1px solid var(--gray-border); transition: var(--transition);
+            background: var(--gray-light); border: 1px solid var(--gray-border); transition: var(--transition); white-space: nowrap;
         }
         .category-nav a:hover, .category-nav a.active { background: var(--gradient-1); color: var(--white); border-color: transparent; box-shadow: var(--shadow-sm); }
 
         /* =========================================
            SERVICES SECTIONS (Grids)
            ========================================= */
-        .services-page-wrapper { padding: 40px 24px 100px; max-width: 1280px; margin: 0 auto; }
+        .services-page-wrapper { padding: 40px 20px 100px; max-width: 1280px; margin: 0 auto; width: 100%; }
         
-        .service-category { margin-bottom: 80px; scroll-margin-top: 140px; }
+        .service-category { margin-bottom: 70px; scroll-margin-top: 140px; width: 100%; }
         
-        .category-header { margin-bottom: 40px; border-bottom: 2px solid var(--gray-border); padding-bottom: 16px; }
-        .category-header h2 { font-size: 2.2rem; font-weight: 800; color: var(--dark); display: flex; align-items: center; gap: 12px; }
-        .category-header h2 i { color: var(--primary); font-size: 1.8rem; }
-        .category-header p { color: var(--text-muted); font-size: 16px; margin-top: 8px; }
+        .category-header { margin-bottom: 30px; border-bottom: 2px solid var(--gray-border); padding-bottom: 16px; }
+        .category-header h2 { font-size: 2rem; font-weight: 800; color: var(--dark); display: flex; align-items: flex-start; gap: 12px; line-height: 1.3; }
+        .category-header h2 i { color: var(--primary); font-size: 1.6rem; margin-top: 5px; }
+        .category-header p { color: var(--text-muted); font-size: 15px; margin-top: 8px; }
 
         .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; width: 100%;
         }
 
         .service-card {
             background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--gray-border);
             overflow: hidden; transition: var(--transition); display: flex; flex-direction: column;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-sm); width: 100%;
         }
         .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(6, 182, 212, 0.3); }
 
-        .service-img-wrap { position: relative; height: 200px; overflow: hidden; background: #e2e8f0; }
+        .service-img-wrap { position: relative; height: 200px; overflow: hidden; background: #e2e8f0; width: 100%; }
         .service-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .service-card:hover .service-img-wrap img { transform: scale(1.08); }
         
@@ -170,27 +192,27 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 2;
         }
 
-        .service-body { padding: 28px 24px; display: flex; flex-direction: column; flex-grow: 1; }
+        .service-body { padding: 24px 20px; display: flex; flex-direction: column; flex-grow: 1; }
         
         .service-icon {
             width: 46px; height: 46px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark);
             border-radius: 12px; display: flex; align-items: center; justify-content: center;
-            font-size: 20px; margin-top: -50px; margin-bottom: 20px; position: relative; z-index: 3;
+            font-size: 20px; margin-top: -46px; margin-bottom: 16px; position: relative; z-index: 3;
             border: 4px solid var(--white); box-shadow: var(--shadow-sm);
         }
         
-        .service-body h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; color: var(--dark); line-height: 1.3; }
+        .service-body h3 { font-size: 19px; font-weight: 800; margin-bottom: 10px; color: var(--dark); line-height: 1.3; }
         .service-body > p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
 
         .service-checklist { margin-bottom: 24px; flex-grow: 1; }
         .service-checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--text-dark); margin-bottom: 10px; line-height: 1.4; font-weight: 500; }
         .service-checklist li i { color: var(--primary); font-size: 16px; margin-top: 1px; flex-shrink: 0; }
 
-        .service-actions { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid var(--gray-border); }
+        .service-actions { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid var(--gray-border); width: 100%; }
         .btn-book { color: var(--primary-dark); font-weight: 800; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; transition: var(--transition); }
         .btn-book:hover { color: var(--accent); gap: 10px; }
         
-        .btn-call-icon { width: 36px; height: 36px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .btn-call-icon { width: 36px; height: 36px; background: rgba(6, 182, 212, 0.1); color: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition); flex-shrink: 0; }
         .btn-call-icon:hover { background: var(--gradient-1); color: var(--white); }
 
         /* =========================================
@@ -200,72 +222,86 @@
             background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
             border: 1px solid var(--primary-glow);
             border-radius: var(--radius-lg);
-            padding: 60px 40px;
+            padding: 50px 24px;
             text-align: center;
             margin-top: 40px;
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
-        .cta-banner h2 { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; position: relative; z-index: 2; }
-        .cta-banner p { font-size: 17px; color: var(--text-muted); margin-bottom: 32px; position: relative; z-index: 2; }
-        .cta-banner .btn { padding: 16px 36px; font-size: 16px; position: relative; z-index: 2; }
+        .cta-banner h2 { font-size: 2.2rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; position: relative; z-index: 2; line-height: 1.2; }
+        .cta-banner p { font-size: 16px; color: var(--text-muted); margin-bottom: 28px; position: relative; z-index: 2; }
+        .cta-banner .btn { padding: 16px 32px; font-size: 16px; position: relative; z-index: 2; width: 100%; max-width: 300px; }
 
         /* =========================================
            FOOTER & MAP
            ========================================= */
-        .map-container { width: 100%; height: 400px; background: var(--gray-border); position: relative; }
+        .map-container { width: 100%; height: 350px; background: var(--gray-border); position: relative; }
         .map-container iframe { width: 100%; height: 100%; border: none; }
         
-        footer { background: var(--dark); color: #94a3b8; padding: 80px 24px 30px; position: relative; overflow: hidden; }
-        .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 48px; padding-bottom: 60px; border-bottom: 1px solid rgba(148, 163, 184, 0.2); position: relative; z-index: 2; }
-        .footer-brand .logo { margin-bottom: 22px; }
-        .footer-brand .logo img { height: 60px; width: auto; background: #fff; border-radius: 8px; padding: 4px; }
+        footer { background: var(--dark); color: #94a3b8; padding: 60px 20px 30px; position: relative; overflow: hidden; }
+        .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr 1.5fr; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid rgba(148, 163, 184, 0.2); position: relative; z-index: 2; width: 100%; }
+        .footer-brand .logo { margin-bottom: 20px; display: inline-block; }
+        .footer-brand .logo img { height: 50px; width: auto; background: #fff; border-radius: 8px; padding: 4px; }
         .footer-brand p { font-size: 14px; line-height: 1.8; max-width: 320px; }
-        .footer-col h4 { color: var(--white); margin-bottom: 24px; font-size: 16px; font-weight: 800; position: relative; padding-bottom: 12px; }
+        .footer-col h4 { color: var(--white); margin-bottom: 20px; font-size: 16px; font-weight: 800; position: relative; padding-bottom: 12px; }
         .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--gradient-1); border-radius: 2px; }
-        .footer-col ul li { margin-bottom: 14px; font-size: 14px; transition: var(--transition); }
+        .footer-col ul li { margin-bottom: 12px; font-size: 14px; transition: var(--transition); }
         .footer-col ul li a:hover { color: var(--primary); padding-left: 4px; }
         .contact-list li { display: flex; gap: 12px; align-items: flex-start; }
         .contact-list i { color: var(--primary); font-size: 16px; margin-top: 4px; width: 32px; height: 32px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .footer-bottom { max-width: 1280px; margin: 30px auto 0; text-align: center; font-size: 14px; position: relative; z-index: 2; }
+        .footer-bottom { max-width: 1280px; margin: 24px auto 0; text-align: center; font-size: 13px; position: relative; z-index: 2; }
 
         /* =========================================
            MOBILE STICKY BAR
            ========================================= */
         .mobile-sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 4000; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
-        .mobile-sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 0; font-size: 16px; font-weight: 700; color: #ffffff; text-decoration: none; transition: var(--transition); }
+        .mobile-sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 0; font-size: 15px; font-weight: 700; color: #ffffff; text-decoration: none; transition: var(--transition); }
         .sticky-wa { background: linear-gradient(135deg, #25D366, #128C7E); }
         .sticky-call { background: var(--gradient-1); }
         @media (min-width: 769px) { .mobile-sticky-bar { display: none; } }
 
         /* =========================================
-           RESPONSIVE
+           RESPONSIVE (MOBILE FIXES)
            ========================================= */
         @media (max-width: 992px) {
-            .page-hero h1 { font-size: 3rem; }
+            .page-hero h1 { font-size: 2.8rem; }
             .footer-container { grid-template-columns: 1fr 1fr; }
         }
+        
         @media (max-width: 768px) {
             body { padding-bottom: 64px; }
             .menu-btn { display: block; }
             .nav-actions { display: none; }
-            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); flex-direction: column; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: clip-path 0.4s ease-in-out; gap: 18px; align-items: flex-start; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); flex-direction: column; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: clip-path 0.4s ease-in-out; gap: 16px; align-items: flex-start; border-bottom: 1px solid var(--gray-border); }
             .nav-links.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-            .mobile-only-actions { display: flex; flex-direction: column; width: 100%; padding-top: 18px; border-top: 1px solid var(--gray-border); }
+            .mobile-only-actions { display: flex; flex-direction: column; width: 100%; padding-top: 16px; border-top: 1px solid var(--gray-border); }
 
-            .page-hero { padding: 60px 20px 40px; }
-            .page-hero h1 { font-size: 2.4rem; }
+            .page-hero { padding: 40px 16px 20px; }
+            .page-hero h1 { font-size: 2.2rem; }
             
-            .category-nav { top: 74px; padding: 12px 16px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
-            .category-nav::-webkit-scrollbar { display: none; }
-            .category-nav a { white-space: nowrap; }
+            /* FIX: Category Nav Scroll instead of wrap */
+            .category-nav { 
+                top: 68px; 
+                padding: 12px 16px; 
+                justify-content: flex-start; 
+                overflow-x: auto; 
+                flex-wrap: nowrap; 
+                -webkit-overflow-scrolling: touch; 
+                scrollbar-width: none; /* Firefox */
+            }
+            .category-nav::-webkit-scrollbar { display: none; } /* Chrome/Safari */
             
-            .service-category { scroll-margin-top: 120px; }
-            .services-page-wrapper { padding: 20px 20px 60px; }
+            .service-category { scroll-margin-top: 120px; margin-bottom: 50px; }
+            .services-page-wrapper { padding: 20px 16px 60px; }
+            .category-header h2 { font-size: 1.6rem; }
+            
             .services-grid { grid-template-columns: 1fr; }
-            .footer-container { grid-template-columns: 1fr; gap: 32px; }
-            .cta-banner { padding: 40px 20px; }
-            .cta-banner h2 { font-size: 2rem; }
+            .footer-container { grid-template-columns: 1fr; gap: 30px; }
+            
+            .cta-banner { padding: 40px 16px; }
+            .cta-banner h2 { font-size: 1.8rem; }
+            .map-container { height: 300px; }
         }
     </style>
 </head>
@@ -273,7 +309,6 @@
 
     <header class="header">
         <div class="nav-container">
-            <!-- FIXED LOGO -->
             <a href="https://shriplumbingsolutions.in/" class="logo">
                 <img src="https://github.com/Growftofficial/shriplumbingsolutionwebsite/blob/main/Jukebox-Sticker-4.18x4.10968876426608in-Transparent.png?raw=true" alt="Shri Plumbing Logo" width="150" height="50">
             </a>
@@ -342,7 +377,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> Available 24/7/365</li>
                         </ul>
                         <div class="service-actions">
-                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Emergency%20Plumbing%20Service" class="btn-book">Book This Service <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Emergency%20Plumbing%20Service" class="btn-book">Book Service <i class="fa-solid fa-arrow-right"></i></a>
                             <a href="tel:+918421554079" class="btn-call-icon"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>
@@ -363,7 +398,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> Long-lasting flow clearance</li>
                         </ul>
                         <div class="service-actions">
-                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Drain%20Unclogging%20Service" class="btn-book">Book This Service <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Drain%20Unclogging%20Service" class="btn-book">Book Service <i class="fa-solid fa-arrow-right"></i></a>
                             <a href="tel:+918421554079" class="btn-call-icon"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>
@@ -384,7 +419,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> 100% leak-proof guarantee</li>
                         </ul>
                         <div class="service-actions">
-                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Leak%20Detection%20Service" class="btn-book">Book This Service <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Leak%20Detection%20Service" class="btn-book">Book Service <i class="fa-solid fa-arrow-right"></i></a>
                             <a href="tel:+918421554079" class="btn-call-icon"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>
@@ -415,7 +450,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> 100% non-invasive thermal scan</li>
                         </ul>
                         <div class="service-actions">
-                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Concealed%20Pipe%20Leak%20Detection" class="btn-book">Book This Service <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Concealed%20Pipe%20Leak%20Detection" class="btn-book">Book Service <i class="fa-solid fa-arrow-right"></i></a>
                             <a href="tel:+918421554079" class="btn-call-icon"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>
@@ -436,7 +471,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> Unbiased third-party evidence</li>
                         </ul>
                         <div class="service-actions">
-                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Ceiling%20Seepage%20Detection" class="btn-book">Book This Service <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Ceiling%20Seepage%20Detection" class="btn-book">Book Service <i class="fa-solid fa-arrow-right"></i></a>
                             <a href="tel:+918421554079" class="btn-call-icon"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>
@@ -457,7 +492,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> Dr. Fixit Dampguard treatment roadmap</li>
                         </ul>
                         <div class="service-actions">
-                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Wall%20Dampness%20Treatment" class="btn-book">Book This Service <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Wall%20Dampness%20Treatment" class="btn-book">Book Service <i class="fa-solid fa-arrow-right"></i></a>
                             <a href="tel:+918421554079" class="btn-call-icon"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>
@@ -488,7 +523,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> Sleek luxury alignment</li>
                         </ul>
                         <div class="service-actions">
-                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Bathroom%20Fittings%20Service" class="btn-book">Book This Service <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Bathroom%20Fittings%20Service" class="btn-book">Book Service <i class="fa-solid fa-arrow-right"></i></a>
                             <a href="tel:+918421554079" class="btn-call-icon"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>
@@ -509,7 +544,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> Genuine OEM spare parts</li>
                         </ul>
                         <div class="service-actions">
-                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Geyser%20Repair%20Service" class="btn-book">Book This Service <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Geyser%20Repair%20Service" class="btn-book">Book Service <i class="fa-solid fa-arrow-right"></i></a>
                             <a href="tel:+918421554079" class="btn-call-icon"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>
@@ -540,7 +575,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> Pressure boosting solutions</li>
                         </ul>
                         <div class="service-actions">
-                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Water%20Tank%20%26%20Motor%20Service" class="btn-book">Book This Service <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/918421554079?text=Hi,%20I%20need%20Water%20Tank%20%26%20Motor%20Service" class="btn-book">Book Service <i class="fa-solid fa-arrow-right"></i></a>
                             <a href="tel:+918421554079" class="btn-call-icon"><i class="fa-solid fa-phone"></i></a>
                         </div>
                     </div>
@@ -596,7 +631,7 @@
                     <li><i class="fa-solid fa-envelope"></i> <span>rajeshdhande1989@gmail.com</span></li>
                     <li><i class="fa-solid fa-location-dot"></i> <span>Pandav Nagar No.1, Chakrapani Road, Bhosari, Pune - 411039</span></li>
                 </ul>
-                <p style="margin-top: 20px; font-size: 14px;">Mon–Sun: 24/7 Available<br>Emergency Calls Accepted</p>
+                <p style="margin-top: 20px; font-size: 13px;">Mon–Sun: 24/7 Available<br>Emergency Calls Accepted</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -643,13 +678,13 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Stop observing after reveal
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Header Scroll Effect (Passive)
+        // Header Scroll Effect
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -659,7 +694,7 @@
             }
         }, { passive: true });
 
-        // Active Category Navigation on Scroll (Optimized)
+        // Active Category Navigation on Scroll
         const sections = document.querySelectorAll('.service-category');
         const navItems = document.querySelectorAll('.category-nav a');
 
